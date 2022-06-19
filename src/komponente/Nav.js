@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 function Nav(){
     return (
         <div className="div_nav">
-            <nav className="navbar navbar-light bg-light">
+            <nav className="navbar navbar-light bg-primary">
             <Link to={"/"} className="navbar-brand" id="poc-nav">Početna</Link>
             <form className="d-flex">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
