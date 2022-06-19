@@ -1,8 +1,10 @@
 import {useState} from 'react';
+import {Link} from 'react-router-dom';
 
-function NovaTuraForma(){
+function NovaTuraForma(props){
 
     const [tura, setTura] = useState({
+            id: '',
             kamion: '',
             datum: '',
             km: '',
@@ -10,6 +12,11 @@ function NovaTuraForma(){
             vozac: ''
     }
     );    
+
+    function handleID(e){
+        setTura({...tura, id: e.target.value});
+        
+    }
 
     function handleKamion(e){
         setTura({...tura, kamion: e.target.value});
@@ -32,11 +39,15 @@ function NovaTuraForma(){
     }
 
 
-
     return (
         <div className="div_nova_tura_forma">
                 
                 <div className="forma">
+
+                <div className="form-group">
+                     <label>ID: </label>
+                     <input type="text" className="form-control" onChange={handleID} value={tura.ID}/>
+                </div>
 
                 <div className="form-group">
                      <label>Kamion: </label>
@@ -63,7 +74,7 @@ function NovaTuraForma(){
                      <input type="text" className="form-control" onChange={handleVozac} value={tura.vozac}/>
                 </div>
 
-                <button type="button" className="btn btn-primary mt-4">Sačuvaj turu</button>
+               <button type="button" onClick={() => props.funkcija(tura)} className="btn btn-primary mt-4">Sačuvaj turu</button>
 
                 </div>
 
